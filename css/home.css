@@ -4,40 +4,105 @@ body {
     font-family: 'Libre Baskerville', serif;
 }
 
-#title h2 {
-    font-weight: 100;
-}
-
-.responsive {
+.slider-1, .slider-2, .slider-3 {
     height: 400px;
     max-width: 1200px;
+
+    padding: 20px 0;
+
+    background-color: rgb(247, 247, 247);
 }
 
-#price {
+.box {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50px;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 4px;
+    position: absolute;
 }
 
-#price p {
-    font-size: 11px;
+.box p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.box #percent{
+    padding: 10px 7px;
+    background-color: rgb(176, 44, 38);
+
+    font-size: 14px;
+    color: #fff;
+}
+
+.box #like-count {
+    padding: 10px 19px;
+    background-color: white;
+
+    font-size: 14px;
+    color: rgb(70, 45, 64);
+} 
+
+#image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#product-info-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 40px 50px;
+
+    text-align: center;
+} 
+
+#product-info-wrapper span {
+    font-size: 9px;
+    color: darkgray;
+}
+
+#product-info-wrapper h6 {
+    font-weight: bolder;
+}
+
+#product-info-wrapper p {
+    font-size: 12px;
     font-weight: bolder;
     color: darkgray;
+}
+
+.slick-prev, .slick-next {
+    background-color: rgb(240, 240, 240);
+}
+
+#title h2 {
+    font-weight: 100;
 }
 
 del {
     color: darkgray;
 }
 
- @media only screen and (max-width: 600px) {
+#price-info p {
+    font-size: 12px;
+    font-weight: bolder;
+    color: darkgray;
+}
+
+@media only screen and (max-width: 600px) {
+    #image-wrapper img {
+        display: flex;
+        justify-content: center;        
+    }
+
     #title h2 {
         display: flex;
         justify-content: center;    
 
-        font-size: 18px;
+        font-size: 14px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 601px) and (max-width: 960px) {
     #title h2 {
         display: flex;
         justify-content: center; 
@@ -46,7 +111,7 @@ del {
     }
 } 
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (min-width: 961px) and (max-width: 1024px) {
     #title h2 {
         display: flex;
         justify-content: center; 

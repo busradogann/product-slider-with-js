@@ -32,10 +32,12 @@
     </div>
 
     <script type="text/javascript" src="slick/slick.min.js"></script>
-    <script type="text/javascript">        
+    <script type="text/javascript">    
+            $(document).ready(() => {
+    
             var defaultSlider = {
                 arrows: true,
-                autoplay: true,
+                autoplay: false,
                 autoplaySpeed: 1700,
                 infinite: true,
                 speed: 400,
@@ -77,16 +79,15 @@
                 data['products'].map(product => {
                     let oldPrice = product.oldPrice || product.price;
                     let calc = Math.round(((oldPrice - product.price) / oldPrice) * 100);
-                    let percentOfDiscount = calc ? `<p id="percent">-${calc}%</p>`: '';
-                    let likeCount = product.params !== undefined && 'likeCount' in product.params ? `<span id="like-count"><img src='heart.svg'>${product.params.likeCount}</span>`: '';
+                    let percentOfDiscount = calc ? `<div id="percent">-${calc}%</div>`: '';
+                    let likeCount = product.params !== undefined && 'likeCount' in product.params ? `<div id="like-count"><img src='heart.svg'>${product.params.likeCount}</div>`: '';
                     let land = product.params !== undefined && 'land' in product.params ? `<span>${product.params.land} </span>`: '';
                     let region = product.params !== undefined && 'region' in product.params ? `<span>${product.params.region} </span>`: '';
                     let art = product.params !== undefined && 'art' in product.params ? `<span>${product.params.art}</span>`: '';
                     let rebsorte = product.params !== undefined && 'rebsorte' in product.params ? `<span>${product.params.rebsorte}</span>`: '';
                     let basePrice = product.params !== undefined && 'basePrice' in product.params ?`<p>${product.params.basePrice}</p>`: '';
 
-                    $(document).ready(() => {
-                        $(`.${el}`).append(`
+                        $(el).append(`
                             <div id="wrapper">
                                 <div class="box">
                                     ${percentOfDiscount}
@@ -115,13 +116,12 @@
                     })
                     
                 });
-                $(`.${el}`).slick(defaultSlider);
-            });
+            $(el).slick(defaultSlider);
             }
-            
-            makeSlider("slider-1", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/4d2cf2a4789ad6dd7d9a11b237bdd93fa508df6d/products.json", defaultSlider);
-            makeSlider("slider-2", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/6cb09635ee5d486faf463c70031e5c1750f5257d/products.json", defaultSlider);
-            makeSlider("slider-3", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/4d2cf2a4789ad6dd7d9a11b237bdd93fa508df6d/products.json", defaultSlider);
+            makeSlider(".slider-1", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/4d2cf2a4789ad6dd7d9a11b237bdd93fa508df6d/products.json", defaultSlider);
+            makeSlider(".slider-2", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/6cb09635ee5d486faf463c70031e5c1750f5257d/products.json", defaultSlider);
+            makeSlider(".slider-3", "https://gist.githubusercontent.com/busradogann/4a649bc269b8fe6e35559959b7a02d90/raw/4d2cf2a4789ad6dd7d9a11b237bdd93fa508df6d/products.json", defaultSlider);
+    });
     </script>
 </body>
 </html>

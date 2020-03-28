@@ -35,12 +35,17 @@ body {
 }
 
 .box #like-count {
-    padding: 10px 19px;
+    padding: 10px;
     background-color: white;
 
     font-size: 14px;
     color: rgb(70, 45, 64);
 } 
+
+.box #like-count img {
+    float: left;
+    margin-right: 5px;
+}
 
 #image-wrapper {
     display: flex;
